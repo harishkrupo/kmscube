@@ -59,3 +59,30 @@ kmscube_LDADD += $(GST_LIBS)
 kmscube_CFLAGS += $(GST_CFLAGS)
 kmscube_SOURCES += cube-video.c gst-decoder.c
 endif
+
+bin_PROGRAMS += kms-iahwc
+
+kms_iahwc_LDADD = \
+	$(DRM_LIBS) \
+	$(GBM_LIBS) \
+	$(EGL_LIBS) \
+	$(GLES2_LIBS) \
+	-lm \
+	-ldl
+
+kms_iahwc_CFLAGS = \
+	-O0 -g \
+	-Wall -Wextra \
+	$(DRM_CFLAGS) \
+	$(GBM_CFLAGS) \
+	$(EGL_CFLAGS) \
+	$(GLES2_CFLAGS) \
+	$(IAHWC_CFLAGS)
+
+kms_iahwc_SOURCES = \
+	common.c \
+	common.h \
+	cube-smooth.c \
+	esTransform.c \
+	esUtil.h \
+	kms-iahwc.c

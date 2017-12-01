@@ -9,6 +9,7 @@ config.log
 config.status
 configure
 kmscube
+kms-iahwc
 tags
 TAGS
 build-aux
